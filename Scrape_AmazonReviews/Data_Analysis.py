@@ -139,6 +139,17 @@ def good_review_filter():
     good_reviews=good_reviews["Comment"]
     return good_reviews
 
+def review_rating_filter(value):
+
+    review1=dataset.loc[dataset["Rating"]==int(value)]
+    review1=review1["Comment"]
+    print("\n{} Star Reviews ".format(value))
+    text=''
+    review_counter=0
+    for msg in review1:
+        text=text+msg+' '
+        review_counter += 1
+        print("Review {}".format(review_counter)+'\n'+ text+'\n')
 
 # def bad_review_top():
 #     bad_reviews=review_filter()
@@ -443,7 +454,7 @@ if __name__ =="__main__":
     print('Total {} product reviews scraped'.format(review_count))
     
     while True:
-        user=input("Enter output (bargraphs/hw reviews/wordcloud/search phrase):")
+        user=input("Enter output (bargraphs/star filter/hw reviews/wordcloud/search phrase):")
         #Bargraphs
         if user.lower() =="bargraphs":
             print("Loading...")
@@ -452,6 +463,17 @@ if __name__ =="__main__":
             hardware_bucket_bargraph()  #Hardware issue bucket
             plt.show()
             print("Finished")
+        #Filter based on star ratings
+        elif user.lower() =="star filter":
+            while True:
+                value=input("Enter number of stars (max value: 5):")
+                if value.lower()=="back":
+                    break
+                elif value.isdigit():
+                    review_rating_filter((value))
+                else:
+                    print("none")
+
         #Filter hardware issues
         elif user.lower() == "hw reviews":
             hardware_reviews() 
