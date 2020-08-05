@@ -147,9 +147,9 @@ def review_rating_filter(value):
     text=''
     review_counter=0
     for msg in review1:
-        text=text+msg+' '
+
         review_counter += 1
-        print("Review {}".format(review_counter)+'\n'+ text+'\n')
+        print("Review {}".format(review_counter)+'\n'+ msg+'\n')
 
 # def bad_review_top():
 #     bad_reviews=review_filter()
