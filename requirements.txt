@@ -50,7 +50,7 @@ srsly==1.0.2
 textwrap3==0.9.2
 thinc==7.4.0
 tqdm==4.46.0
-Twisted==20.3.0
+Twisted==22.2.0
 urllib3==1.25.9
 w3lib==1.22.0
 wasabi==0.6.0
